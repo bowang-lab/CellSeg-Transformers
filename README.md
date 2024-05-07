@@ -30,6 +30,8 @@ python infer_cp_noTTA.py
 ```
 
 
+
+
 ## Fig2a: Transformer model with learning rate `0.00005`
 
 1. Generate the flows: `python gen_flow`
@@ -50,3 +52,18 @@ python infer_ctc492.py
    - Run the inference `docker container run --gpus="device=0" -m 28G --name mediar --rm -v $PWD/CTC-Data/imagesTr_GT492/:/workspace/inputs/ -v $PWD/CTC-Data/seg_mediar:/workspace/outputs/ osilab:latest /bin/bash -c "sh predict.sh"`
 
 3. Compute Metrics: `python compute_metrics -g path_to_gt -s path_to_seg -o save_path -n save_name`
+
+
+## Running time comparison for whole-slide images (WSI) segmenation
+
+- Infer WSIs with Cellpose ([Video](https://drive.google.com/file/d/1CFMa2WgP0iY-HhaBu_xBdiZhoaKg3GIj/view?usp=sharing))
+
+```bash
+python infer_wsi_cellpose_time.py
+```
+
+- Infer WSIs with Mediar ([Video](https://drive.google.com/file/d/1EGFCJ3xtzo-qlLTgcUsp4A9dFxwQB5hk/view?usp=sharing))
+
+```bash
+python infer_wsi_mediar_time.py
+```
